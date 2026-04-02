@@ -1,0 +1,100 @@
+\ProvidesPackage{english-ufscar}[2025/09/23 v1.0 English wrappers for ufscar/abntex2]
+
+\RequirePackage{etoolbox}
+
+\newcommand{\setplace}[1]{\local{#1}}
+\newcommand{\setyear}[1]{\data{#1}}
+
+\newcommand{\settitle}[1]{%
+  \@ifundefined{titulo}{%
+    \title{#1}%
+    \renewcommand{\imprimirtitulo}{#1}%
+    \renewcommand{\@engtitle}{#1}%
+  }{%
+    \titulo{#1}{#1}%
+    \renewcommand{\@engtitle}{#1}%
+  }%
+}
+
+\newcommand{\setauthor}[2]{\autor{#1}{#2}}
+
+\newcommand{\setengtitle}[1]{\renewcommand{\@engtitle}{#1}}
+\newcommand{\setauthorbib}[1]{\renewcommand{\@authorbib}{#1}}
+
+\newcommand{\setuniversity}[2]{\universidade{#1}{#2}}
+\newcommand{\setcenter}[2]{\centro{#1}{#2}}
+\newcommand{\setdepartment}[2]{\departamento{#1}{#2}}
+\newcommand{\setprogram}[2]{\programa{#1}{#2}}
+\newcommand{\setcourse}[1]{\curso{#1}}
+
+\newcommand{\setadvisor}[1]{\orientador{#1}}
+\newcommand{\setcoadvisor}[1]{\coorientador{#1}}
+
+\newcommand{\setpreamble}[1]{\preambulo{#1}}
+\newcommand{\setarea}[1]{\areaconcentracao{#1}}
+
+\renewcommand{\orientadorname}{Advisor:}
+\renewcommand{\coorientadorname}{Co-advisor:}
+
+\renewcommand{\agradecimentosname}{Acknowledgments}
+
+\makeatletter
+\patchcmd{\@makecaption}
+  {Figura~\thefigure}
+  {Figure~\thefigure}
+  {}{}
+\makeatother
+
+\newcommand{\listillustrations}{
+  \renewcommand{\listfigurename}{List of figures}
+  \renewcommand{\figurename}{Figure}
+  \listailustracoes
+  \cleardoublepage
+}
+
+\newcommand{\listtables}{
+    \renewcommand{\listtablename}{List of tables}
+	\pdfbookmark[0]{\listtablename}{lot}
+	\listoftables*
+	\cleardoublepage
+}
+
+\AtBeginDocument{%
+  \renewcommand{\contentsname}{Contents}
+  \renewcommand{\chaptername}{Chapter}
+  \renewcommand{\bibname}{References}
+  \renewcommand{\anexoname}{ATTACHMENT}
+  \renewcommand{\apendicename}{APPENDIX}
+  \renewcommand{\figurename}{Figure}
+  \renewcommand{\tablename}{Table}
+  \addto\captionsbrazil{
+    \renewcommand{\figurename}{Figure}
+    \renewcommand{\tablename}{Table}
+  }
+}
+
+\makeatletter
+\renewcommand{\partapendices}{%
+  \cleardoublepage
+  \thispagestyle{empty}%
+  \vspace*{\fill}%
+  \begin{center}%
+    {\ABNTEXchapterfont Appendices\par}
+  \end{center}%
+  \vspace*{\fill}%
+  \cleardoublepage
+}
+\makeatother
+
+\makeatletter
+\renewcommand{\partanexos}{%
+  \cleardoublepage
+  \thispagestyle{empty}%
+  \vspace*{\fill}%
+  \begin{center}%
+    {\ABNTEXchapterfont Attachments\par}
+  \end{center}%
+  \vspace*{\fill}%
+  \cleardoublepage
+}
+\makeatother

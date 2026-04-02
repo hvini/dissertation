@@ -1,0 +1,111 @@
+\documentclass[qualimst]{ufscar}
+
+\selectlanguage{english}
+
+\usepackage{cmap}
+\usepackage{lmodern}
+\usepackage{makeidx}
+\usepackage{lastpage}
+\usepackage{indentfirst}
+\usepackage{nomencl}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{lipsum}
+\usepackage[printonlyused]{acronym}
+\usepackage[table]{xcolor}
+\usepackage{english-ufscar}
+\usepackage{enumitem}
+
+\setlist[itemize]{label=\textbullet, leftmargin=*}
+\setlist[enumerate]{leftmargin=*}
+
+\settitle{Title}
+\setauthor{Author name}{Surname, Name}
+\setplace{City}
+\setyear{Year}
+
+\setuniversity{Federal University of São Carlos}{UFSCar}
+
+\setcenter{Center of Exact Sciences and Technology}{CCET}
+
+\setdepartment{Computing Department}{DC}
+
+\setprogram{Graduate Program in Computer Science}{PPGCC}
+
+\setcourse{Computer Science}
+
+\setarea{Computing Methodologies and Techniques}
+
+\setadvisor{Advisor full name}
+\setcoadvisor{Co-advisor full name}
+
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+
+\makeindex
+
+\makenomenclature
+
+\begin{document}
+
+\pretextual
+
+\maketitle
+
+\imprimirdedicatoria{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum tincidunt sollicitudin. Aenean eget nunc tortor. Aliquam erat volutpat. Sed iaculis sit amet sapien id pharetra. Mauris orci dolor, tincidunt eget fermentum id, lacinia ut dolor. Mauris quis metus auctor, semper lorem quis, scelerisque ipsum.}
+
+\imprimiragradecimentos{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum tincidunt sollicitudin. Aenean eget nunc tortor. Aliquam erat volutpat. Sed iaculis sit amet sapien id pharetra. Mauris orci dolor, tincidunt eget fermentum id, lacinia ut dolor. Mauris quis metus auctor, semper lorem quis, scelerisque ipsum.}
+
+\imprimirepigrafe{Lorem ipsum dolor sit amet, consectetur adipiscing elit.Aliquam erat volutpat.}
+
+\begin{resumo}{Palavras-chave}
+\lipsum[31-33]
+\end{resumo}
+
+
+\begin{abstract}{Keywords}
+\lipsum[31-33]
+\end{abstract}
+
+\listillustrations
+
+\listtables
+
+\listasiglas{partes/pre-textuais/abreviaturas}
+
+\sumario
+
+\mainmatter
+
+\include{partes/textuais/introducao}
+
+\include{partes/textuais/fund_teorica}
+
+\include{partes/textuais/rev_bibliografica}
+
+\include{partes/textuais/proposta}
+
+\include{partes/textuais/mat_metodos}
+
+\bookmarksetup{startatroot}
+
+\include{partes/textuais/conclusoes}
+
+\postextual
+
+\bibliography{references}
+
+\glossary
+
+\begin{apendicesenv}
+    \makeatletter
+    \renewcommand{\@chapapp}{Appendix}
+    \makeatother
+    \partapendices
+    \include{partes/pos-textuais/apendices}
+\end{apendicesenv}
+
+\include{partes/pos-textuais/anexos}
+
+\end{document}
