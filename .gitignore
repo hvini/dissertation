@@ -315,5 +315,6 @@ TSWLatexianTemp*
 # Ignore LyX backup and autosave files
 # http://www.lyx.org/
 *.lyx#
+*.lyx
 
 # End of https://www.toptal.com/developers/gitignore/api/latex,lyx

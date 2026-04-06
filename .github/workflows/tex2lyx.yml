@@ -34,4 +34,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ufscar-lyx-project
-          path: '**/*.lyx'
+          path: |
+            **/*.lyx
+            **/*.cls
+            **/*.sty
+            **/*.layout
+            **/*.bib
+            figuras/
