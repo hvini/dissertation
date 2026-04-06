@@ -1,0 +1,36 @@
+name: Convert LaTeX to LyX
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install LyX and LaTeX dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lyx texlive-latex-base texlive-latex-extra texlive-lang-portuguese
+
+      - name: Configure UFSCar LyX Layout
+        run: |
+          mkdir -p ~/.lyx/layouts
+          cp ufscar.layout ~/.lyx/layouts/
+
+          lyx -batch -x reconfigure
+
+      - name: Run tex2lyx on main.tex
+        run: |
+          tex2lyx main.tex main.lyx
+
+      - name: Upload only .lyx files as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ufscar-lyx-project
+          path: '**/*.lyx'
