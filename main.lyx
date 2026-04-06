@@ -53,6 +53,11 @@
 
 \makenomenclature
 
+\addto\captionsbrazil{%
+  \renewcommand{\appendixname}{Appendix}
+  \renewcommand{\appendixtocname}{Appendices}
+}
+
 
 \end_preamble
 \options qualimst
@@ -392,6 +397,10 @@ literal "false"
 
 \end_layout
 
+\begin_layout PosTextual
+
+\end_layout
+
 \begin_layout Standard
 
 \begin_inset CommandInset bibtex
@@ -404,10 +413,6 @@ options ""
 
 \end_layout
 
-\begin_layout PosTextual
-
-\end_layout
-
 \begin_layout Standard
 
 \begin_inset Flex Glossary
@@ -416,47 +421,25 @@ status collapsed
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\start_of_appendix
+
 \begin_inset ERT
 status collapsed
 
 \begin_layout Plain Layout
-
-\backslash
-begin{apendicesenv}
+%dummy comment inserted by tex2lyx to ensure that this paragraph is not empty
 \end_layout
-
-\end_inset
-
- 
-\begin_inset ERT
-status collapsed
 
 \begin_layout Plain Layout
 
-\backslash
-makeatletter
 \end_layout
 
 \end_inset
 
- 
-\begin_inset FormulaMacro
-\renewcommand{\@chapapp}{Appendix}
-\end_inset
 
- 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-\backslash
-makeatother
-\end_layout
-
-\end_inset
-
- 
 \begin_inset ERT
 status collapsed
 
@@ -474,18 +457,6 @@ LatexCommand include
 preview false
 filename "partes/pos-textuais/apendices.lyx"
 literal "false"
-
-\end_inset
-
- 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-\backslash
-end{apendicesenv}
-\end_layout
 
 \end_inset
 

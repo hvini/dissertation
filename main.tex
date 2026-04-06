@@ -47,6 +47,11 @@
 
 \makenomenclature
 
+\addto\captionsbrazil{%
+  \renewcommand{\appendixname}{Appendix}
+  \renewcommand{\appendixtocname}{Appendices}
+}
+
 \begin{document}
 
 \pretextual
@@ -98,13 +103,9 @@
 
 \glossary
 
-\begin{apendicesenv}
-    \makeatletter
-    \renewcommand{\@chapapp}{Appendix}
-    \makeatother
-    \partapendices
-    \include{partes/pos-textuais/apendices}
-\end{apendicesenv}
+\appendix 
+\partapendices
+\include{partes/pos-textuais/apendices}
 
 \include{partes/pos-textuais/anexos}
 
