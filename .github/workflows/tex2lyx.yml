@@ -23,7 +23,8 @@ jobs:
           mkdir -p ~/.lyx/layouts
           cp ufscar.layout ~/.lyx/layouts/
 
-          lyx -batch -x reconfigure
+          cd ~/.lyx
+          python3 /usr/share/lyx/configure.py
 
       - name: Run tex2lyx on main.tex
         run: |
